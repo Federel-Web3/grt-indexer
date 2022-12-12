@@ -6,7 +6,7 @@ type ExampleEntity @entity {
 }
 
 
-type Immobile @entity {
+type ImmobileEntity @entity {
   id: ID!
   count: BigInt!
   itemId: BigInt! # uint256
