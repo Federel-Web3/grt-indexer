@@ -1,0 +1,32 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Registry
+    network: celo-alfajores
+    source:
+      address: "0xFC22fB792c33d687A41679D62eC2a9E2eEC44A3f"
+      abi: Registry
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - IncorporateFinish
+        - IncorporateFinishUpdate
+        - IncorporateRevert
+        - IncorporateStart
+      abis:
+        - name: Registry
+          file: ./abis/Registry.json
+      eventHandlers:
+        - event: IncorporateFinish(indexed uint256,address)
+          handler: handleIncorporateFinish
+        - event: IncorporateFinishUpdate(indexed uint256,indexed uint256,address)
+          handler: handleIncorporateFinishUpdate
+        - event: IncorporateRevert(indexed uint256,address)
+          handler: handleIncorporateRevert
+        - event: IncorporateStart(indexed uint256,address)
+          handler: handleIncorporateStart
+      file: ./src/registry.ts
