@@ -4,3 +4,13 @@ type ExampleEntity @entity {
   itemId: BigInt! # uint256
   tabeliao: Bytes! # address
 }
+
+
+type Immobile @entity {
+  id: ID!
+  count: BigInt!
+  itemId: BigInt! # uint256
+  tabeliao: Bytes! # address
+  employee: Bytes! # address
+}
+
